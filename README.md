@@ -5,14 +5,17 @@ ___
 
   
 # Team Members
-- **Nathaniel Bannis**
-  - Lead Programmer👨🏾‍💻
-- **Sedina Husanovic**:fireworks:
-  - Documentation Lead and Testing Lead
-- **Robert Sima**
-  - Project Manager and UX/UI Design
-- **Ezekiel Akande**
-  - Data Modeler
+-Andrew Wilkinson: 🤠
+UI/UX & Testing
+Rosemol Thanjappan: 🎨
+Lead Programmer/Architect
+Anthony Tran: 🤡
+Data modeler
+Ti Nguyen: ✉️ 📝
+Client Liaison & Documentation
+Yararis Cotto-Quinones: 👑
+Team Manager
+
   
 ---
  ### [Our Repo](https://github.com/nateBanz/GermGang-BacterialID)
