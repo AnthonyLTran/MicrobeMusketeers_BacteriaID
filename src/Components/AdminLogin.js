@@ -17,6 +17,7 @@ import StudentDashboard from "./StudentDashboard";
 import ProfessorClasses from "./ProfessorClasses"
 import CreateExperiment from "./CreateExperiment"
 import ProfessorSignUp from "./ProfessorSignUp"
+import ProfessorDashboard from "../../../src/Components/ProfessorDashboard"
 
 export default function AdminLogin() {
     
@@ -43,7 +44,8 @@ export default function AdminLogin() {
                             <Route path="/professorClasses" component={ProfessorClasses} />
                             <Route path="/createExperiment" component={CreateExperiment} />
                             <Route path="/professorSignUp" component ={ProfessorSignUp}/>
-                            
+                            <Route path="/professordashboard" component={ProfessorDashboard} />
+
                         </Switch>
                     </AuthProvider>
                 </Router>
