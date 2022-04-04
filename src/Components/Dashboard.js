@@ -1,21 +1,33 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import { Card, Button, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import { NavLink } from "react-router-dom"
 import { Nav } from "react-bootstrap"
 import firebase from "firebase"
+import { ref } from "yup"
 
-const db = firebase.firestore()
+const db = firebase.firestore();
 
-const makeAdmin = () => {
-  console.log("#professor-email" + "is a professor")
-}
+// const makeProfessor = () => {
+//   console.log("hi")
+
+//   const docRef = db.collection('users').doc(email);
+//   docRef.set({
+//     UserRole: "Professor"
+//     });
+// }
 
 
 export default function Dashboard() {
   const [error, setError] = useState("")
+  const [email, setEmail] = useState("");
   const { currentUser, logout } = useAuth()
+  const pemail = useRef()
+  let onChange  = (event) =>{
+    const newValue = event.target.value
+    setEmail(newValue);
+  }
   const history = useHistory()
     if (currentUser.email !== "bsarraj@ccc.edu" && currentUser != null ){
         history.push("/StudentDashboard")
@@ -33,6 +45,11 @@ export default function Dashboard() {
     } catch {
       setError("Failed to log out")
     }
+  }
+
+  async function addProfessor() {
+    db.collection("users").doc(pemail.current.value).update({UserRole: "Professor"});
+    const docRef = db.collection('users').doc().update;
   }
 
   return (
@@ -57,8 +74,8 @@ export default function Dashboard() {
             </NavLink>  
           </Nav>
           <div className="w-100 text-center mt-3">
-            <input type="email" placeholder="User email" id="professor-email" size = "50" required />
-            <button type="button" onClick={makeAdmin}>Make Professor</button>
+            <input type="email" placeholder="User email" ref={pemail} size = "50"  />
+            <button type="button" onClick={addProfessor} >Make Professor</button>
           </div>
         </Card.Body>
       </Card>
